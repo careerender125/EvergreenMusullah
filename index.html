@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Evergreen Musullah</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+
+    <body>
+        <div class="topbar">
+
+            <header>
+                <h1 id="Title"><a href="index.html"> Evergreen Musullah</a></h1>
+                <nav>
+                    <ul>
+                        <strong>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="#contactInfo">Contact</a></li>
+                            <li><a href="location.html">Location</a></li>
+                        </strong>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+
+        <div class="content">
+            <h1 id="welcome">Welcome To Evergreen Musullah</h1>
+            <h3 id="currentDate"></h3>
+
+
+            <div class="table">
+                <table>
+                    <tbody>
+                        <tr colspan="3" style="text-align: center;">
+                            <th>Prayer</th>
+                            <th>Begins</th>
+                            <th>Iqama</th>
+                        </tr>
+                        <tr id="FAJR">
+                            <td>Fajr</td>
+                            <td>3:03AM</td>
+                            <td id="fajrTime">3:30AM</td>
+                        </tr>
+                        <tr id="ZUHR">
+                            <td>Zuhr</td>
+                            <td>1:09PM</td>
+                            <td id="zuhrTime">1:35PM</td>
+                        </tr>
+                        <tr id="ASR">
+                            <td>Asr</td>
+                            <td>6:35PM</td>
+                            <td id="asrTime">7:15PM</td>
+                        </tr>
+                        <tr id="MAGHRIB">
+                            <td>Maghrib</td>
+                            <td>9:17PM</td>
+                            <td id="maghribTime">9:17PM</td>
+                        </tr>
+                        <tr id="ISHA">
+                            <td>Isha</td>
+                            <td>10:30PM</td>
+                            <td id="ishaTime">10:45PM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <footer>
+            <div id="contactInfo">
+                <p id="contactP">
+                    If you wish to reach out to us please contact musullah owner at <br> <strong>
+                    (123) - 456 - 789 </strong><br>
+                    To contact website creator reach me at <br>
+                    <strong>hasannadeem243@gmail.com</strong>
+        
+                </p>
+        </footer>
+
+
+
+
+    </body>
+
+    <script>
+        let currentDay = function(sp){
+            today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //As January is 0.
+            var yyyy = today.getFullYear();
+
+            if(dd<10) dd='0'+dd;
+            if(mm<10) mm='0'+mm;
+            return (mm+sp+dd+sp+yyyy);
+        }
+
+        document.getElementById("currentDate").innerHTML = currentDay('-');
+
+        var now = new Date().toLocaleTimeString();
+        console.log(now)
+
+        //the specific time of the prayer
+        const fajr = document.getElementById("fajrTime");
+        const zuhr = document.getElementById("zuhrTime");
+        const asr = document.getElementById("asrTime");
+        const maghrib = document.getElementById("maghribTime");
+        const isha = document.getElementById("ishaTime")
+
+        //get the row of the table
+        const maghribTime = document.getElementById("MAGHRIB");
+        const fajrTime = document.getElementById("FAJR")
+        const zuhrTIme = document.getElementById("ZUHR");
+        const asrTime = document.getElementById("ASR");
+        const ishaTime = document.getElementById("ISHA")
+
+        if(now <= fajr){
+            fajrTime.style.backgroundColor = "green";
+        }
+
+        if(now <= zuhr){
+            fajrTime.style.backgroundColor = "white";
+            zuhrTime.style.backgroundColor = "green";
+        }
+
+        if(now <= asr){
+            zuhrTime.style.backgroundColor = "white";
+            asrTime.style.backgroundColor = "green";
+        }
+
+        if(now <= maghrib){
+            asrTime.style.backgroundColor = "white";
+            maghribTime.style.backgroundColor = "green";
+        }
+
+        if(now <= isha){
+            maghribTime.style.backgroundColor = "white";
+            ishaTime.style.backgroundColor = "green";
+        }
+
+
+
+
+
+    </script>
+
+</html>
